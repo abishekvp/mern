@@ -7,27 +7,25 @@ const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
 
-const authroutes = require("./routes/auth");
+const authRoutes = require("./routes/auth");
 
 mongoose.connect(process.env.DATABASE,{
     useNewUrlsParser:true,
     useUnifiedTopology:true,
     useCreateIndex:true
-})
-.then(()=>{
+}).then(()=>{
     console.log("DB Connected")
 }).catch(
     console.log("Error on DB Connectonx")
-)
-.catch(console.log("DB got oops"));
+)   .catch(console.log("DB got oops"));
 
 //Middleware
 app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(cors());
 
-//rioutes
-app.use("/api",authroutes)
+//routes
+app.use("/api",authRoutes);
 
 //port
 const port = process.env.PORT || 8000;
