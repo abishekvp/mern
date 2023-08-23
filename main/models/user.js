@@ -16,6 +16,12 @@ var userSchema = new mongoose.Schema({
         required:true,
         unique: true
     },
+    contact:{
+        type: String,
+        trim:true,
+        required:true,
+        unique: true
+    },
     userinfo:{
         type: String,
         trim: true
